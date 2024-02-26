@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2b385b;
+  }
+  
+  #container {
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+    top: calc(50% - 25vh);
+    text-align: center;
+  }
+  
+  .card {
+    width: 150px;
+    height: 200px;
+    padding: 30px;
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.68);
+    background-color: #ff4500;
+    height: auto; /* Altere para 'auto' para que a altura seja determinada pelo conteúdo */
+    max-height: 200px; /* Defina a altura máxima para evitar que os cards se estiquem muito */
+    overflow: hidden;
+}
+
+.botoes-container{
+  display: flex;
+  border-radius: 5px solid black;
+  justify-content: center;
+}
+
+.botao-editar,
+.botao-apagar {
+    background-color: #366717;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin: 5px 0; /* Margem no topo e na base */
+    display: inline-block; /* Garante que os botões se comportem como elementos em linha */
+}
+
+
+
+
+
