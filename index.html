@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio querySelectorAll e setAttribute</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Full Stack </p>
+            <div class="botoes-container">
+                <button class="botao-editar">Editar</button>
+                <button class="botao-apagar">Deletar</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">UX/UI Designer</p>
+            <div class="botoes-container">
+                <button class="botao-editar">Editar</button>
+                <button class="botao-apagar">Deletar</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Data Science</p>
+            <div class="botoes-container">
+                <button class="botao-editar">Editar</button>
+                <button class="botao-apagar">Deletar</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Quality Assurance</p>
+            <div class="botoes-container">
+                <button class="botao-editar">Editar</button>
+                <button class="botao-apagar">Deletar</button>
+            </div>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Advanced Mobile</p>
+            <div class="botoes-container">
+                <button class="botao-editar">Editar</button>
+                <button class="botao-apagar">Deletar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Capturando, armazenando e manipulando todos os elementos de classe "card"
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            // Modificando estilos para se assemelhar à imagem
+            card.style.backgroundColor = '#ff4500';
+            card.style.padding = '20px';
+            card.style.margin = '10px';
+            card.style.borderRadius = '8px';
+        });
+
+        // 2. Capturando, armazenando e manipulando todos os elementos de classe "titulo-card"
+        const titulos = document.querySelectorAll('.titulo-card');
+        titulos.forEach(titulo => {
+            // Modificando estilos para se assemelhar à imagem
+            titulo.style.color = '#000000';
+            titulo.style.fontSize = '24px';
+            titulo.style.fontWeight = 'bold';
+        });
+
+        // 3. Modificando o texto dos títulos nos cards para "Meu card"
+        titulos.forEach(titulo => {
+            titulo.textContent = 'Meu card';
+        });
+
+        // 4. Capturando, armazenando e manipulando todos os elementos de classe "descricao-card"
+        const descricoes = document.querySelectorAll('.descricao-card');
+        descricoes.forEach(descricao => {
+            // Modificando estilos para se assemelhar à imagem
+            descricao.style.color = '#000000';
+        });
+
+        // 5. Modificando o texto das descrições nos cards para "Descrição modificada pelo JavaScript"
+        descricoes.forEach(descricao => {
+            descricao.textContent = 'Descrição modificada pelo JavaScript';
+        });
+
+        // 6. Capturando, armazenando e manipulando todos os elementos de classe "botao-editar"
+        const botoesEditar = document.querySelectorAll('.botao-editar');
+        botoesEditar.forEach(botao => {
+            botao.style.backgroundColor = '#366717';
+            botao.style.color = '#fff';
+            botao.style.border = 'none';
+            botao.style.padding = '8px 16px';
+            botao.style.borderRadius = '4px';
+            botao.style.marginRight = '5px';
+            botao.style.display = 'inline-block';
+
+            botao.addEventListener('click', editarCard);
+        });
+
+        function editarCard() {
+            const card = this.parentElement.parentElement;
+            const titulo = card.querySelector('.titulo-card');
+            const descricao = card.querySelector('.descricao-card');
+            const novoTitulo = prompt('Digite o novo título:');
+            const novaDescricao = prompt('Digite a nova descrição:');
+            if (novoTitulo !== null && novaDescricao !== null) {
+                titulo.textContent = novoTitulo;
+                descricao.textContent = novaDescricao;
+                alert('Clicou em Editar!');
+            }
+        }
+
+        const botoesApagar = document.querySelectorAll('.botao-apagar');
+        botoesApagar.forEach(botao => {
+            botao.style.backgroundColor = '#ff0000';
+            botao.style.color = '#fff';
+            botao.style.border = 'none';
+            botao.style.padding = '8px 16px';
+            botao.style.borderRadius = '4px';
+            botao.style.marginRight = '5px';
+
+            botao.addEventListener('click', apagarCard);
+        });
+
+        function apagarCard() {
+            const confirmacao = confirm('Tem certeza que deseja excluir o card?');
+            if (confirmacao) {
+                const card = this.parentElement.parentElement;
+                card.remove();
+                alert('Card removido com sucesso!');
+            } else {
+                alert('Cancelou!');
+            }
+        }
+    </script>
+</body>
+
+</html>
